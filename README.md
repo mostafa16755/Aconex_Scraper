@@ -33,22 +33,22 @@ aconex_scraper/
 
 ### Usage:
 - Set credentials and paths in main.py:
-  `user_name = "your_username"
-  password = "your_password"
-  folder_path = "path_to_save_files"
-  emails_file_name = "emails.csv"
-  docs_file_name = "docs.xlsx"`
+  `user_name = "your_username" `
+  `password = "your_password"`
+  `folder_path = "path_to_save_files"`
+  `emails_file_name = "emails.csv"`
+  `docs_file_name = "docs.xlsx"`
 
 - Run the script:
   `python main.py`
 
 
-Output:
+### Output:
 - Emails CSV: Includes Mail No, Subject, Date, From, Recipient, Attachments, Confidential, etc.
 - Documents Excel: Columns include Document No, Revision, Title, Type, Status, Author, Portfolio, Hyperlink, etc.
 - Workflow CSV: Workflow No, Workflow Name, Document No, Step Name, Action, Assigned To, Dates, Step Status, etc.
 
-How It Works:
+### How It Works:
 - Login via Selenium
     Automates username and password input.
     Collects cookies and CSRF tokens for API requests.
@@ -63,7 +63,7 @@ How It Works:
     Parses HTML tables using BeautifulSoup.
     Extracts workflow steps, assignees, actions, and completion dates.
 
-Data Loading
+### Data Loading
   Emails → CSV
   Documents → Excel
   Workflows → CSV
