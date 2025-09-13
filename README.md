@@ -21,12 +21,12 @@ enabling analysts and project teams to efficiently analyze project information.
 - Document Extraction: Captures document metadata (title, revision, status, author, portfolio) and maps it to Excel columns.
 - Workflow Extraction: Collects workflow information including step name, action, assignee, dates, and completion status.
 - Multi-Page Handling: Automatically loops through pages to gather large datasets.
-- ETL Compliance: Structured pipeline ensures data is collected, transformed, and loaded efficiently.<hr><hr>
+- ETL Compliance: Structured pipeline ensures data is collected, transformed, and loaded efficiently.<
 - Error Handling: Detects HTML or JSON structure changes and reports issues for troubleshooting.
 
 ### Usage:
-- Set credentials and paths in main.py:
-  ` user_name = "your_username"`<br>
+- Set credentials and paths in main.py:<br>
+      ` user_name = "your_username"`<br>
       `password = "your_password"`
 
 - Run the script:
