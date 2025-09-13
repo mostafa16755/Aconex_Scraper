@@ -1,32 +1,29 @@
-🏗️ Aconex Data Extraction Pipeline
+# 🏗️ Aconex Data Extraction Pipeline
 
-A Python project to automate the extraction of emails, documents, and workflows from the Aconex project collaboration platform. This tool is designed for project teams and analysts to collect structured project data and export it to Excel or CSV files.
+This Python project automates the extraction, transformation, 
+and loading (ETL) of project data from Aconex into structured formats like CSV and Excel, 
+enabling analysts and project teams to efficiently analyze project information.
 
-Features
+### This tool automates the extraction process by:
+- Logging in securely using Selenium to collect session cookies and CSRF tokens.
+- Fetching emails, documents, and workflows via Aconex endpoints.
+- Transforming raw data into structured formats (CSV/Excel) with consistent columns and metadata.
+- Exporting datasets for further analysis in BI tools or Excel.
 
-Automates login to Aconex using Selenium.
+### The project follows the ETL architecture:
+- Extract: Collect emails, documents, and workflow data from Aconex using API calls and web scraping.
+- Transform: Map JSON/HTML data to structured fields, clean strings, and handle missing values.
+- Load: Save datasets to CSV or Excel for easy analysis and reporting.
 
-Fetches emails, including attachments, recipients, and metadata.
+### Key Features
+- Automated Login: Uses Selenium to handle Aconex login securely.
+- Email Extraction: Retrieves emails, attachments, recipients, status, and confidentiality flags.
+- Document Extraction: Captures document metadata (title, revision, status, author, portfolio) and maps it to Excel columns.
+- Workflow Extraction: Collects workflow information including step name, action, assignee, dates, and completion status.
+- Multi-Page Handling: Automatically loops through pages to gather large datasets.
+- ETL Compliance: Structured pipeline ensures data is collected, transformed, and loaded efficiently.<hr><hr>
+- Error Handling: Detects HTML or JSON structure changes and reports issues for troubleshooting.
 
-Extracts controlled documents with detailed metadata (title, revision, status, portfolio, etc.).
-
-Collects workflow data with step status, assignee, and completion dates.
-
-Exports emails to CSV and documents/workflows to Excel/CSV.
-
-Handles multiple pages and large datasets automatically.
-
-Requirements
-
-Python 3.10+
-
-Chrome browser + ChromeDriver
-
-Libraries:
-
-pip install requests pandas openpyxl selenium beautifulsoup4
-
-File Structure
 aconex_scraper/
 ├─ emails.py        # Handles login and email extraction
 ├─ doc.py           # Handles document extraction
@@ -34,66 +31,39 @@ aconex_scraper/
 ├─ main.py          # Main script to execute all extractions
 ├─ README.md        # Project documentation
 
-Usage
-1. Set up credentials and paths
+### Usage:
+- Set credentials and paths in main.py:
+  `user_name = "your_username"
+  password = "your_password"
+  folder_path = "path_to_save_files"
+  emails_file_name = "emails.csv"
+  docs_file_name = "docs.xlsx"`
 
-In main.py, set your Aconex username, password, and export folder path:
-
-user_name = "your_username"
-password = "your_password"
-folder_path = "path_to_save_files"
-emails_file_name = "emails.csv"
-docs_file_name = "docs.xlsx"
-
-2. Run the script
-python main.py
+- Run the script:
+  `python main.py`
 
 
-The script will:
+Output:
+- Emails CSV: Includes Mail No, Subject, Date, From, Recipient, Attachments, Confidential, etc.
+- Documents Excel: Columns include Document No, Revision, Title, Type, Status, Author, Portfolio, Hyperlink, etc.
+- Workflow CSV: Workflow No, Workflow Name, Document No, Step Name, Action, Assigned To, Dates, Step Status, etc.
 
-Open a Chrome browser to login (automated by Selenium).
+How It Works:
+- Login via Selenium
+    Automates username and password input.
+    Collects cookies and CSRF tokens for API requests.
+- Fetch Emails
+    Sends GET requests using cookies and CSRF token.
+    Loops through all pages to retrieve email metadata and attachments info.
+- Fetch Documents
+    Sends POST requests to the document search API.
+    Loops through all pages, maps JSON data to Excel columns.
+- Fetch Workflow Data
+    Sends POST requests to workflow API.
+    Parses HTML tables using BeautifulSoup.
+    Extracts workflow steps, assignees, actions, and completion dates.
 
-Extract emails and save them to emails.csv.
-
-Extract controlled documents and save them to docs.xlsx.
-
-Extract workflow data and save it to workflow_data.csv.
-
-3. Output
-
-Emails CSV: Fields include Mail No, Subject, Date, From, Recipient, Has Attachments, Confidential, etc.
-
-Documents Excel: Columns include Document No, Revision, Title, Type, Status, Author, Portfolio, Hyperlink, etc.
-
-Workflow CSV: Includes Workflow No, Workflow Name, Document No, Step Name, Action, Assigned To, Dates, Step Status, etc.
-
-How it Works
-
-Login via Selenium
-
-Automates inputting username and password.
-
-Collects cookies and CSRF token for API requests.
-
-Fetch Emails
-
-Sends GET requests using cookies and CSRF token.
-
-Loops through all pages to collect emails.
-
-Fetch Documents
-
-Sends POST requests to the document search endpoint.
-
-Loops through pages to collect all documents.
-
-Maps raw JSON data to structured Excel columns.
-
-Fetch Workflow Data
-
-Sends POST requests to workflow search endpoint.
-
-Parses HTML tables using BeautifulSoup.
-
-Extracts workflow information and exports to CSV.
-
+Data Loading
+  Emails → CSV
+  Documents → Excel
+  Workflows → CSV
