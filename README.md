@@ -1,7 +1,7 @@
 # 🏗️ Aconex Data Extraction Pipeline
 
 This Python project automates the extraction, transformation, 
-and loading (ETL) of project data from Aconex into structured formats like CSV and Excel, 
+and loading **(ETL)** of project data from Aconex into structured formats like CSV and Excel, 
 enabling analysts and project teams to efficiently analyze project information.
 
 ### This tool automates the extraction process by:
@@ -57,6 +57,8 @@ enabling analysts and project teams to efficiently analyze project information.
   - Documents → Excel
   - Workflows → CSV
 
+
+### Project Structure
 ```aconex_scraper/
 ├─ emails.py        # Handles login and email extraction
 ├─ doc.py           # Handles document extraction
