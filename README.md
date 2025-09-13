@@ -33,11 +33,11 @@ enabling analysts and project teams to efficiently analyze project information.
 
 ### Usage:
 - Set credentials and paths in main.py:
-  ```user_name = "your_username"
-  password = "your_password"
-  folder_path = "path_to_save_files"
-  emails_file_name = "emails.csv"
-  docs_file_name = "docs.xlsx"```
+  ``` user_name = "your_username"
+      password = "your_password"
+      folder_path = "path_to_save_files"
+      emails_file_name = "emails.csv"
+      docs_file_name = "docs.xlsx"```
 
 - Run the script:
   `python main.py`
