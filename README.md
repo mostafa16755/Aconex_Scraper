@@ -24,20 +24,20 @@ enabling analysts and project teams to efficiently analyze project information.
 - ETL Compliance: Structured pipeline ensures data is collected, transformed, and loaded efficiently.<hr><hr>
 - Error Handling: Detects HTML or JSON structure changes and reports issues for troubleshooting.
 
-aconex_scraper/
+```aconex_scraper/
 ├─ emails.py        # Handles login and email extraction
 ├─ doc.py           # Handles document extraction
 ├─ workflows.py     # Handles workflow extraction
 ├─ main.py          # Main script to execute all extractions
-├─ README.md        # Project documentation
+├─ README.md        # Project documentation```
 
 ### Usage:
 - Set credentials and paths in main.py:
-  `user_name = "your_username" `
-  `password = "your_password"`
-  `folder_path = "path_to_save_files"`
-  `emails_file_name = "emails.csv"`
-  `docs_file_name = "docs.xlsx"`
+  ```user_name = "your_username"
+  password = "your_password"
+  folder_path = "path_to_save_files"
+  emails_file_name = "emails.csv"
+  docs_file_name = "docs.xlsx"```
 
 - Run the script:
   `python main.py`
